@@ -1,0 +1,45 @@
+<div class="d-flex flex-column h100v">
+  <div class="flex-shrink-0 flex-grow-1 d-flex flex-column">
+    <div class="p-4 d-flex align-self-center doc-img-wrapper">
+      <img class="doc-image" src="assets/images/lorem_ipsum.png">
+    </div>
+    <div class="form-group text-center">
+      <button type="button" class="btn btn-primary fw-bold btn-lg" (click)="triggerModal(modalData)">Request OTP to
+        Sign</button>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #modalData let-modal>
+  <div class="modal-header d-flex flex-column">
+    <h4 class="modal-title" id="modal-basic-title">{{status}}</h4>
+    <h3 class="text-primary">{{label}}</h3>
+  </div>
+  <div class="modal-body d-flex flex-column">
+    <div class="d-flex flex-column">
+      <div></div>
+      <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+          <input type="text" formControlName="adhaar" class="form-control" [ngClass]="{ 'is-invalid':f.adhaar.errors }" />
+          <div *ngIf="f.adhaar.errors" class="invalid-feedback">
+            <div *ngIf="f.adhaar.errors.required">Adhaar is required</div>
+            <div *ngIf="f.adhaar.errors.adhaar">Adhaar must be a valid 12 digit format</div>
+          </div>
+          <button type="button">1</button>
+        </div>
+        <div class="d-flex flex-row">
+          <input >
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row">
+      <input type="text" formControlName="otp" class="form-control" [ngClass]="{ 'is-invalid':f.otp.errors }" />
+          <div *ngIf="f.otp.errors" class="invalid-feedback">
+            <div *ngIf="f.otp.errors.required">OTP is required</div>
+            <div *ngIf="f.otp.errors.otp">OTP must be a valid 6 digit format</div>
+          </div>
+      <button type="button">3</button>
+    </div>
+  </div>
+</ng-template>

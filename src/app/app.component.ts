@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'digio';
+  islogIn: boolean = false;
+
+  getLoginStatus(status: boolean) {
+    console.log("status", status);
+    this.islogIn = status;
+  }
 }
